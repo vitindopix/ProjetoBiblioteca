@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Vitin\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Vitin\\.nuget\\packages"
+    ]
+  }
+}
