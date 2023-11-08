@@ -1,6 +1,7 @@
 @model ICollection<Emprestimo>
 @{
     ViewData["Title"] = "Listagem de Empréstimos";
+    string classe = "";
 }
 
 <div class="row">
@@ -40,7 +41,16 @@
             <tbody>
                 @foreach (Emprestimo e in Model)
                 {
-                    <tr>
+                    if(System.DateTime.Compare(System.DateTime.Now, E.DataDevolução)>0)
+                    {
+                        Classe = "text-danger";
+                    }
+
+                    else
+                    {
+                        Classe = "";
+                    }
+                    <tr class="@classe">
                         <td>@e.Id</td>
                         <td>@e.NomeUsuario</td>
                         <td>@e.Telefone</td>

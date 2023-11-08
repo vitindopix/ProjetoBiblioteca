@@ -81,3 +81,7 @@ C:\Users\Vitin\Desktop\Biblioteca\bin\Debug\netcoreapp3.1\runtimes\win\lib\netst
 C:\Users\Vitin\Desktop\Biblioteca\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 C:\Users\Vitin\Desktop\Biblioteca\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 C:\Users\Vitin\Desktop\Biblioteca\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\Vitin\Desktop\Biblioteca\obj\Debug\netcoreapp3.1\Razor\Views\Usuarios\administrador.cshtml.g.cs
+C:\Users\Vitin\Desktop\Biblioteca\obj\Debug\netcoreapp3.1\Razor\Views\Usuarios\EditarUsuario.cshtml.g.cs
+C:\Users\Vitin\Desktop\Biblioteca\obj\Debug\netcoreapp3.1\Razor\Views\Usuarios\ListaDeUsuario.cshtml.g.cs
+C:\Users\Vitin\Desktop\Biblioteca\obj\Debug\netcoreapp3.1\Razor\Views\Usuarios\RegistrarUsuarios.cshtml.g.cs

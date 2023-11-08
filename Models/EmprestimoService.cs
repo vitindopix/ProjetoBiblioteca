@@ -25,56 +25,48 @@ namespace Biblioteca.Models
                 emprestimo.LivroId = e.LivroId;
                 emprestimo.DataEmprestimo = e.DataEmprestimo;
                 emprestimo.DataDevolucao = e.DataDevolucao;
+                emprestimo.Devolvido = e.Devolvido;
 
                 bc.SaveChanges();
             }
         }
 
 
-public ICollection<Emprestimo> ListarTodos(FiltrosEmprestimos filtro = null)
+public ICollection<Emprestimo> ListarTodos(FiltrosEmprestimos filtro)
 {
-    using (BibliotecaContext bc = new BibliotecaContext())
-    {
-        IQueryable<Emprestimo> query = bc.Emprestimos.Include(e => e.Livro);
-
-        if (filtro != null)
-        {
-            // Define dinamicamente a filtragem com base no tipo de filtro
-            if (!string.IsNullOrEmpty(filtro.TipoFiltro) && !string.IsNullOrEmpty(filtro.Filtro))
+   using(BibliotecaContext bc = new BibliotecaContext())
             {
-                switch (filtro.TipoFiltro)
+                IQueryable<Emprestimo> query;
+                
+                if(filtro != null)
                 {
-                    case "Usuario":
-                        query = query.Where(e => e.NomeUsuario.Contains(filtro.Filtro));
+                    //definindo dinamicamente a filtragem
+                    switch(filtro.TipoFiltro)
+                    {
+                        case "Usuario":
+                            query = bc.Emprestimos.Where(e => e.NomeUsuario.Contains(filtro.Filtro));
                         break;
 
-                    case "Livro":
-                        query = query.Where(e => e.Livro.Titulo.Contains(filtro.Filtro) || e.Livro.Autor.Contains(filtro.Filtro));
+                        case "Livro":
+                            query = bc.Emprestimos.Where(e => e.Livro.Titulo.Contains(filtro.Filtro));
                         break;
+
+                        default:
+                            query = bc.Emprestimos;
+                        break;
+                    }
                 }
+                else
+                {
+                    // caso filtro não tenha sido informado
+                    query = bc.Emprestimos;
+                }
+                
+                //ordenação padrão
+                return query.Include(e => e.Livro).ToList();
             }
-        }
-
-        // Ordena os resultados por data de devolução, ou outra coluna apropriada
-        query = query.OrderBy(e => e.DataDevolucao);
-
-        return query.ToList();
-    }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-    
-        
 
 
         public Emprestimo ObterPorId(int id)
